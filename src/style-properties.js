@@ -27,7 +27,8 @@ const matchesSelector = function(selector) {
   const method = this.matches || this.matchesSelector ||
     this.mozMatchesSelector || this.msMatchesSelector ||
     this.oMatchesSelector || this.webkitMatchesSelector;
-  return method && method.call(this, selector);
+  console.log('matchesSelector', 'method', method, 'typeof method', typeof method, 'selector', selector, 'typeof selector', typeof selector, 'this', this, 'typeof this', typeof this);
+  return method && typeof method === 'function' && method.call(this, selector);
 };
 
 const IS_IE = navigator.userAgent.match('Trident');
